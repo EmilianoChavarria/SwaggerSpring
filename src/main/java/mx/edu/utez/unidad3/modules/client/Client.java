@@ -23,6 +23,9 @@ public class Client {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "Phone must be a valid phone number with 10 to 15 digits")
+    @NotNull(message = "Phone cannot be null")
+    @NotBlank(message = "Phone cannot be blank")
     @Column(name = "phone", nullable = false)
     private String phone;
 
