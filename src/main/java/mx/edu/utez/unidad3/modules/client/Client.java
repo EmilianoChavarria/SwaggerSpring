@@ -29,8 +29,12 @@ public class Client {
     @Column(name = "phone", nullable = false)
     private String phone;
 
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Email must be a valid email address")
+    @NotNull(message = "Email cannot be null")
+    @NotBlank(message = "Email cannot be blank")
     @Column(name = "email", nullable = false)
     private String email;
+
 
     @OneToMany(mappedBy = "client")
     @JsonIgnore
